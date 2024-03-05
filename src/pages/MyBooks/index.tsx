@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table } from 'antd';
+import { useGoogleBooksData } from 'src/hooks/get-books';
 // import { PageLayout } from '../layouts/PageLayout';
 
 type BookList = {
@@ -9,7 +10,10 @@ type BookList = {
   items: Book[];
 };
 type Book = {
-  kind: string;
+  id: string;
+  title: string;
+  subtitle: string;
+  publishedDate: string;
 };
 
 // async function getBooks(): Promise<Book[]> {
@@ -18,13 +22,46 @@ type Book = {
 //   return response.data.items;
 // }
 const MyBooks = () => {
-  // const [books, setBooks] = useState<[] | Book[]>([]);
+  // const { data: allBooks, isLoading } = useGoogleBooksData();
+  // const [books, setBooks] = useState<Book[]>([]);
+
+  // let booksData: Book[] = [];
   // useEffect(() => {
-  //   (async () => {
-  //     const books = await getBooks();
-  //     setBooks(books);
-  //   })();
-  // }, []);
+  //   if (allBooks?.items != null) {
+  //     setBooks(allBooks.items);
+  //     booksData = books.map(
+  //       book =>
+  //         ({
+  //           id: book.id,
+  //           title: book.title,
+  //           subtitle: book.subtitle,
+  //           publishedDate: book.publishedDate,
+  //         } as Book),
+  //     );
+  //   }
+  // }, [allBooks]);
+  const columns = [
+    {
+      title: 'Id',
+      dataIndex: 'id',
+      key: 'id',
+    },
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title',
+    },
+    {
+      title: 'Subtitle',
+      dataIndex: 'subtitle',
+      key: 'subtitle',
+    },
+    {
+      title: 'Published Date',
+      dataIndex: 'publishedDate',
+      key: 'publishedDate',
+    },
+  ];
   const dataSource = [
     {
       key: '1',
@@ -37,23 +74,6 @@ const MyBooks = () => {
       name: 'John',
       age: 42,
       address: '10 Downing Street',
-    },
-  ];
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
     },
   ];
   return (
@@ -87,7 +107,7 @@ const MyBooks = () => {
           </p>
         </div>
         <div className="feature-content">
-          <Table dataSource={dataSource} columns={columns} />;
+          <Table dataSource={booksData} columns={columns} />;
         </div>
       </div>
     </div>

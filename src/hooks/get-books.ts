@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-export const useData = () => {
+export const useGoogleBooksData = (query?: String) => {
   return useQuery({
-    queryKey: ['repoData'],
+    queryKey: ['googleBooksData'],
     queryFn: () =>
       axios
         .get('https://www.googleapis.com/books/v1/volumes?q=excel')
