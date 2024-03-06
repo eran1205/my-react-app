@@ -17,6 +17,9 @@ export const LeftMenu = () => {
       <Menu.Item key="mybooks">
         <NavLink to="/mybooks">My Books</NavLink>
       </Menu.Item>
+      <Menu.Item key="reactquery">
+        <NavLink to="/react_query">React Query Example</NavLink>
+      </Menu.Item>
       <SubMenu key="sub1" title="Services">
         <MenuItemGroup title="Features">
           <Menu.Item key="setting:1">

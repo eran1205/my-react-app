@@ -106,9 +106,9 @@ const MyBooks = () => {
             sequi cupiditate ad. Ratione omnis eos nesciunt.
           </p>
         </div>
-        <div className="feature-content">
+        {/* <div className="feature-content">
           <Table dataSource={booksData} columns={columns} />;
-        </div>
+        </div> */}
       </div>
     </div>
   );

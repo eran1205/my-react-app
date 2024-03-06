@@ -6,6 +6,7 @@ import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const HomePage = lazy(() => import('src/pages/HomePage'));
 const MyBooksPage = lazy(() => import('src/pages/MyBooks'));
+const ReactQueryExample = lazy(() => import('src/pages/ReactQuery'));
 
 export const Routes = () => {
   return (
@@ -16,6 +17,12 @@ export const Routes = () => {
             {/* Static pages routes */}
             <Route exact path={PATH.HOME} component={HomePage} />
             <Route exact path={PATH.MYBOOKS} component={MyBooksPage} />
+            <Route
+              exact
+              path={PATH.REACT_QUERY_EXAMPLE}
+              component={ReactQueryExample}
+            />
+
             {/* <Route exact path={PATH.ABOUT} component={AboutPage} />
           <Route exact path={PATH.DEMO1} component={Demo1Page} />
           <Route exact path={PATH.DEMO2} component={Demo2Page} />

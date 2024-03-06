@@ -14,4 +14,5 @@ export const PATH = {
   PRODUCT_NEW: '/products/new',
   PRODUCT_EDIT: '/products/:id/edit',
   MYBOOKS: '/mybooks',
+  REACT_QUERY_EXAMPLE: '/react_query',
 };
